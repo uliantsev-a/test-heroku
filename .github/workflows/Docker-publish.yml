@@ -1,9 +1,5 @@
 name: Docker_publish
 
-defaults:
-  run:
-    shell: bash
-    working-directory: ad_api_on_flask
 on:
   push:
     branches: [ master ]
