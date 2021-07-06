@@ -1,10 +1,11 @@
 name: Docker_publish
 
 on:
- release:
-   types: [published]
+ push:
+   branches: master
   
 jobs:
+ 
   build:
     runs-on: ubuntu-latest
     steps:
