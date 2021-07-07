@@ -4,4 +4,6 @@ COPY ./ad_api_on_flask /app
 
 RUN pip install -r /app/requirements.txt
 
-CMD ["python", "app/app.py"]
+WORKDIR /app
+
+CMD ["gunicorn", "app:app"]

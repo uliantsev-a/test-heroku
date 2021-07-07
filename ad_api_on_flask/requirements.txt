@@ -22,3 +22,5 @@ alembic == 1.6.4
 jsonschema == 3.2.0
 psycopg2-binary == 2.9.1
 pytest == 6.2.4
+gunicorn == 20.1.0
+
