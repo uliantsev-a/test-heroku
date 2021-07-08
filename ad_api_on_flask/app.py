@@ -7,7 +7,6 @@ from flask_migrate import Migrate
 from jsonschema import validate
 from flask_jwt_extended import create_access_token, jwt_required, JWTManager, verify_jwt_in_request
 from schema import AD_CREATE, USER_CREATE
-import psycopg2
 
 
 app = Flask(__name__)
