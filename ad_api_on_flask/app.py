@@ -7,12 +7,16 @@ from flask_migrate import Migrate
 from jsonschema import validate
 from flask_jwt_extended import create_access_token, jwt_required, JWTManager, verify_jwt_in_request
 from schema import AD_CREATE, USER_CREATE
+import psycopg2
 
 
 app = Flask(__name__)
 jwt = JWTManager(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://{}:{}@localhost:5432/ad_api'.format(os.getenv('DB_USER'),
-                                                                                          os.getenv('DB_PASSWORD'))
+DATABASE_URL = os.environ['DATABASE_URL']
+conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://{}:{}@localhost:5432/ad_api'.format(os.getenv('DB_USER'),
+#                                                                                          os.getenv('DB_PASSWORD'))
+app.config['SQLALCHEMY_DATABASE_URI'] = conn
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 SALT = 'my_salt'
 db = SQLAlchemy(app)
