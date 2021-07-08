@@ -14,8 +14,9 @@ app = Flask(__name__)
 jwt = JWTManager(app)
 DATABASE_URL = os.environ['DATABASE_URL']
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://{}:{}@localhost:5432/ad_api'.format(os.getenv('DB_USER'),
-                                                                                          os.getenv('DB_PASSWORD'))
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://{}:{}@localhost:5432/ad_api'.format(os.getenv('DB_USER'),
+#                                                                                          os.getenv('DB_PASSWORD'))
+app.config['SQLALCHEMY_DATABASE_URI'] = conn
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 SALT = 'my_salt'
 db = SQLAlchemy(app)
