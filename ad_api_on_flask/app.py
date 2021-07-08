@@ -57,6 +57,7 @@ class User(db.Model):
     def set_password(self, raw_password: str):
         raw_password = f'{raw_password}{SALT}'
         self.password = hashlib.md5(raw_password.encode()).hexdigest()
+        print(self.password)
 
     def check_password(self, raw_password: str):
         raw_password = f'{raw_password}{SALT}'
@@ -65,7 +66,6 @@ class User(db.Model):
 
     def to_dict(self):
         return {
-            'id': self.id,
             'username': self.username,
             "email": self.email
         }
@@ -82,7 +82,7 @@ def create_user():
         db.session.commit()
         return jsonify({'status': 'CREATED'}), 201
     except:
-        return "При добавлении объявления произошла ошибка"
+        return "При добавлении пользователя произошла ошибка"
 
 
 @jwt_required

@@ -35,5 +35,5 @@ USER_CREATE = {
 			"pattern": "^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
 		}
 	},
-	"required": ["username", "email", "password"]
+	"required": ["username", "email"]
 }
