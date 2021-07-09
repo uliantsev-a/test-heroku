@@ -64,7 +64,6 @@ class User(db.Model):
         return self.password
 
     def to_dict(self):
-        print(self.password)
         return {
             'username': self.username,
             "email": self.email
@@ -75,7 +74,6 @@ class User(db.Model):
 def create_user():
     """ Функция создания пользователя """
     user = User(**request.json)
-    print(user)
     user.set_password(request.json['password'])
     try:
         validate(user.to_dict(), USER_CREATE)
