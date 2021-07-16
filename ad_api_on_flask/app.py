@@ -75,13 +75,13 @@ def create_user():
     """ Функция создания пользователя """
     user = User(**request.json)
     user.set_password(request.json['password'])
-    try:
-        validate(user.to_dict(), USER_CREATE)
-        db.session.add(user)
-        db.session.commit()
-        return jsonify({'status': 'CREATED'}), 201
-    except:
-        return "При добавлении пользователя произошла ошибка"
+    # try:
+    validate(user.to_dict(), USER_CREATE)
+    db.session.add(user)
+    db.session.commit()
+    return jsonify({'status': 'CREATED'}), 201
+    # except:
+    #     return "При добавлении пользователя произошла ошибка"
 
 
 @jwt_required
