@@ -12,7 +12,8 @@ from schema import AD_CREATE, USER_CREATE
 app = Flask(__name__)
 jwt = JWTManager(app)
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://{}:{}@localhost:5432/ad_api'.format(os.getenv('DB_USER'),
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', '').replace('postgres', 'postgresql+psycopg2')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 SALT = 'my_salt'
 db = SQLAlchemy(app)
