@@ -84,8 +84,8 @@ def create_user():
 
 
 @app.route('/', methods=['GET'], strict_slashes=False)
-def user_detail():
-    return "Hello world"
+def home():
+    return "Hello world!"
 
 
 @jwt_required
