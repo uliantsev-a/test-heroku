@@ -9,7 +9,7 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     name = os.getenv('ADMINAME', 'Def')
-    return f'Hello {name}!'
+    return f'Hello friend, {name}!'
 
 
 if __name__ == '__main__':
