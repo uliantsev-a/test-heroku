@@ -9,7 +9,7 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     name = os.getenv('ADMINAME', 'Def')
-    return f'Hello friend, {name}!'
+    return f'Hello friend, {name}! \n I`m run netology-flask-example!'
 
 
 if __name__ == '__main__':
