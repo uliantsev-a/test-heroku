@@ -85,7 +85,12 @@ def create_user():
 
 @app.route('/', methods=['GET'], strict_slashes=False)
 def home():
-    return "Hello new world!"
+    return "Hello world V2.0!"
+
+
+@app.route('/healcheck', methods=['GET'], strict_slashes=False)
+def healcheck():
+    return "Ok"
 
 
 @jwt_required
