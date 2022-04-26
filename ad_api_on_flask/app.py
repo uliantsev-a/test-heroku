@@ -85,7 +85,7 @@ def create_user():
 
 @app.route('/', methods=['GET'], strict_slashes=False)
 def home():
-    return "Hello world V1.0!"
+    return "Hello world V2.0!"
 
 
 @app.route('/healcheck', methods=['GET'], strict_slashes=False)
